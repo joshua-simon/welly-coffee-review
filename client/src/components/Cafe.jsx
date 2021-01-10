@@ -6,9 +6,11 @@ const Cafe = (props) => {
         <div>
             {
                 cafes.map(cafe =>{
-                    return (<div>
-                        <h1>{cafe.cafeName}</h1>
-                        <img src = {cafe.photoURL}></img>
+                    const {cafeName,photoURL} = cafe
+                    return (
+                    <div className = 'cafe-container'>
+                        <h2>{cafeName}</h2>
+                        <img src = {photoURL}></img>
                     </div>
                     )
                 })

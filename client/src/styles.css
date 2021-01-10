@@ -2,3 +2,24 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: antiquewhite;
 }
+
+.main-container h1 {
+    color:rgb(104, 98, 98);
+}
+
+.cafe-container-container {
+    margin-top:5%;
+}
+
+.cafe-container{
+    border: solid 1px rgb(161, 153, 153);
+    padding: 1%;
+    margin:1%;
+    border-radius: 5px;
+    
+}
+
+.cafe-container img{
+    width:20%;
+    height:120%
+}

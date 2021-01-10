@@ -3,8 +3,8 @@ import CafeList from './CafeList'
 
 const Main = () => {
     return(
-        <div>
-            <h1>This is the main page</h1>
+        <div className = 'main-container'>
+            <h1>The Wellington Coffee Review</h1>
             <CafeList/>
         </div>
     )

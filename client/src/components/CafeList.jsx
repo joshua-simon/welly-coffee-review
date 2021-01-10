@@ -16,7 +16,8 @@ const CafeList = () => {
     },[])
 
     return(
-        <div>
+        <div className = 'cafe-container-container'>
+            <h2>Cafes</h2>
             <Cafe cafes = {cafes}/>
         </div>
     )
