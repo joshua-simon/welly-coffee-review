@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const mongoose = require('mongoose')
 const Review = require('./models/reviews')
+const Cafe = require('./models/cafes')
 const bodyParser = require('body-parser');
 
 
@@ -29,6 +30,16 @@ mongoose.connect(dbURI, {useNewUrlParser:true, useUnifiedTopology:true})
 //Routes
 app.get('/api/all-reviews', (req,res) => {
     Review.find()
+    .then((result) => {
+        res.send(result)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+
+app.get('/api/all-cafes', (req,res) => {
+    Cafe.find()
     .then((result) => {
         res.send(result)
     })

@@ -2,6 +2,7 @@ import React from 'react'
 import AddReview from './components/AddReview'
 import Main from './components/Main'
 import AllReviews from './components/AllReviews'
+import './styles.css'
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 

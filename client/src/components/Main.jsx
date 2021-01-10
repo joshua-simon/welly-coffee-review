@@ -1,9 +1,11 @@
 import React from 'react'
+import CafeList from './CafeList'
 
 const Main = () => {
     return(
         <div>
-            This is the main page
+            <h1>This is the main page</h1>
+            <CafeList/>
         </div>
     )
 }
