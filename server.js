@@ -60,4 +60,13 @@ app.post('/api/add-review',(req,res) => {
     })
 })
 
-
+app.delete('/reviews/:id', (req,res) => {
+    const id = req.params.id
+    Review.findByIdAndDelete(id)
+    .then(() => {
+       console.log('review successfully deleted')
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})

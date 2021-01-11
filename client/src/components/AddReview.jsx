@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const AddReview = () => {
 
-    const [{userName,stars,title,photo,blurb}, setFormDetails] = useState({userName:'', stars:0, title:'', photo:'', blurb:''})
+    const [{userName,stars,title,photo,blurb,cafeName}, setFormDetails] = useState({userName:'', stars:0, title:'', photo:'', blurb:'',cafeName:''})
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -22,7 +22,8 @@ const AddReview = () => {
             stars:stars,
             title:title,
             photo:photo,
-            blurb:blurb
+            blurb:blurb,
+            cafeName:cafeName
         }
         console.log(newReview)
         axios.post('http://localhost:5000/api/add-review',newReview)
@@ -55,6 +56,14 @@ const AddReview = () => {
             <label>
                 Blurb
                 <input type = 'text' id = 'blurb' name = 'blurb' onChange = {handleChange}></input>
+            </label>
+            <label>
+                Cafe
+                <select id = 'cafeName' name = 'cafeName' onChange = {handleChange}>
+                <option value="Customs Coffee">Customs Coffee</option>
+                <option value="Milk Crate">Milk Crate</option>
+                <option value="Best Ugly Bagels">Best Ugly Bagels</option>
+                </select>
             </label>
             <button type = 'submit'>Submit</button>
         </form>

@@ -6,7 +6,8 @@ const reviewSchema = new Schema({
     stars:String,
     title:String,
     photo:String,
-    blurb:String
+    blurb:String,
+    cafeName:String,
 }, {timestamps:true})
 
 const Review = mongoose.model('reviews', reviewSchema)
