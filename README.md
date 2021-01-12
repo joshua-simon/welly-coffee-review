@@ -6,16 +6,16 @@ In Wellington, you're never more than 5 minutes away from good espress - so I'm 
 
 ## Objectives
 
-To write clean, readable code through use of destructuring, functional components, React hooks, and consistent naming strategies
+* To write clean, readable code through use of destructuring, functional components, React hooks, and consistent naming strategies
 
-To consolidate by my understanding of full-stack development
+* To consolidate by my understanding of full-stack development
 
-To learn how to manage database information with MongoDB/Mongoose
+* To learn how to manage database information with MongoDB/Mongoose
 
-##Tech
-React
-Axios
-Express
-Mongoose
-MongoDB Atlas
+## Tech
+* React
+* Axios
+* Express
+* Mongoose
+* MongoDB Atlas
 
