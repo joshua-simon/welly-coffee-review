@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import Cafe from './Cafe'
+import {Link} from 'react-router-dom'
+
 
 const CafeList = () => {
     const [cafes, setCafe] = useState([])
@@ -18,7 +19,20 @@ const CafeList = () => {
     return(
             <div className = 'cafe-container-container'>
                 <h2>Cafes</h2>
-                <Cafe cafes = {cafes}/>
+                {
+                cafes.map(cafe =>{
+                    const {cafeName,photoURL,_id} = cafe
+                    
+                    return (
+                    <Link to = {`/cafe-reviews/${_id}`} style={{ textDecoration: 'none' }} >
+                        <div className = 'cafe-container'>
+                            <h2>{cafeName}</h2>
+                            <img src = {photoURL}></img>
+                        </div>
+                    </Link>
+                    )
+                })
+            }
             </div>
 
     )

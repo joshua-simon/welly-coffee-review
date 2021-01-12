@@ -48,6 +48,17 @@ app.get('/api/all-cafes', (req,res) => {
     })
 })
 
+app.get('/api/cafe/:id', (req,res) => {
+    const id =req.params.id
+    Cafe.findById(id)
+    .then(result => {
+        res.send(result)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+
 app.post('/api/add-review',(req,res) => {
     const review = new Review(req.body)
     review.save()
