@@ -2,7 +2,7 @@
 
 ## About
 
-In Wellington, you're never more than 5 minutes away from good espress - so I'm building an app to log my many cafe visits and review the various cafes around town! 
+In Wellington, you're never more than 5 minutes away from good espresso - so I'm building an app to log my many cafe visits and review the various cafes around town! 
 
 ## Objectives
 
