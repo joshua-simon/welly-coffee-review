@@ -13,8 +13,10 @@ const CafeReviews = ({match}) => {
 
   return(
       <div>
-          {cafe.cafeName}
-          
+        <div className = 'cafe-header'>
+         <img src = {cafe.photoURL}></img> 
+         <h1>{cafe.cafeName}</h1>
+         </div>
       </div>
   )
 }

@@ -18,13 +18,13 @@ const CafeList = () => {
 
     return(
             <div className = 'cafe-container-container'>
-                <h2>Cafes</h2>
+                {/* <h3>See reviews:</h3> */}
                 {
                 cafes.map(cafe =>{
                     const {cafeName,photoURL,_id} = cafe
                     
                     return (
-                    <Link to = {`/cafe-reviews/${_id}`} style={{ textDecoration: 'none' }} >
+                    <Link to = {`/cafe-reviews/${_id}`} style={{ textDecoration: 'none', color:'#686262' }} >
                         <div className = 'cafe-container'>
                             <h2>{cafeName}</h2>
                             <img src = {photoURL}></img>
