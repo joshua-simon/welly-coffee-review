@@ -4,6 +4,9 @@ const Schema = mongoose.Schema
 const cafeSchema = new Schema({
     cafeName:String,
     photoURL:String,
+    address:String,
+    phoneNumber:String,
+    website:String
 }, {timestamps:true})
 
 
