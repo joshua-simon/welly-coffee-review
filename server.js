@@ -38,6 +38,17 @@ app.get('/api/all-reviews', (req,res) => {
     })
 })
 
+app.get('/api/review-by-cafe/:id', (req,res) => {
+    const id = req.params.id
+    Review.find({cafeReference:id})
+    .then(result => {
+        res.send(result)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+
 app.get('/api/all-cafes', (req,res) => {
     Cafe.find()
     .then((result) => {

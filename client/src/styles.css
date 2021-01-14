@@ -46,3 +46,23 @@ body {
     border-radius:100%;
     margin:1%;
 }
+
+.reviews-container {
+    background-color:rgb(255, 255, 255);
+    padding:3%;
+    margin-top:5%;
+    border-radius:10px;
+}
+
+.review-container {
+    border-bottom: 1px solid rgb(153, 151, 151);
+    padding:2%;
+    color:rgb(85, 81, 81);
+}
+
+.review-container button {
+    font-family: 'Roboto', sans-serif;
+    color:white;
+    background-color:rgb(85, 81, 81);
+    border:hidden;
+}
