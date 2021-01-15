@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 import Review from './Review'
+import CafeHeader from './CafeHeader'
 
 const CafeReviews = ({ match }) => {
   const [cafe, setCafe] = useState([]);
@@ -25,17 +26,9 @@ const CafeReviews = ({ match }) => {
 
   return (
     <div>
-      <div className="cafe-header">
-        <img src={cafe.photoURL}></img>
-        <h1>{cafe.cafeName}</h1>
-      </div>
-      <ul className = 'contact-details'>
-      <li>{cafe.address}</li>
-     <li>{cafe.phoneNumber}</li> 
-      <li><a href ={cafe.website} style={{ textDecoration: 'none' }}  >website</a></li>
-      </ul>
-      <div className = 'reviews-container'>
-        <Review reviews={filteredReviews} />
+      <CafeHeader cafe={cafe} />
+      <div className="reviews-container">
+      <Review reviews={filteredReviews} />
       </div>
     </div>
   );
