@@ -12,7 +12,7 @@ const Main = () => {
         <AddReview />
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Main

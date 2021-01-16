@@ -22,7 +22,7 @@ const Cafe = (props) => {
       })
       }
     </div>
-  );
-};
+  )
+}
 
 export default Cafe

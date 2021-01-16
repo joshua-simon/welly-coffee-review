@@ -24,6 +24,7 @@ const CafeReviews = ({ match }) => {
     return review.cafeName === cafe.cafeName;
   });
 
+
   return (
     <div>
       <CafeHeader cafe={cafe} />
@@ -31,7 +32,7 @@ const CafeReviews = ({ match }) => {
       <Review reviews={filteredReviews} />
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default CafeReviews
