@@ -68,6 +68,12 @@ form input {
     letter-spacing:1px;
 }
 
+.cafe-container:hover{
+    background-color:rgb(104, 98, 98);
+    color:antiquewhite;
+    border-radius: 5px;
+}
+
 .cafe-grid{
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -127,4 +133,15 @@ form input {
 
 .nav{
 border-bottom: 1px solid rgb(150, 144, 144);
+}
+
+.submit-message {
+    margin-top:2%;
+}
+
+.submit-message button {
+    background-color:antiquewhite;
+    color:black;
+    transform:translateX(20%);
+    border:1px solid rgb(150, 144, 144);
 }

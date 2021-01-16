@@ -21,3 +21,6 @@ export const convertToStars = (stars) => {
     return averageStars
     } else return null
   }
+
+
+

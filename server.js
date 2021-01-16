@@ -76,6 +76,7 @@ app.post('/api/add-review',(req,res) => {
     .then(() => {
         console.log('review successfully posted')
         res.status(200)
+        res.json({"message": "Review successfully submitted"})
     })
     .catch(err => {
         console.log(err)

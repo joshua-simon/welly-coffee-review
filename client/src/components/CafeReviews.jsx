@@ -8,7 +8,6 @@ const CafeReviews = ({ match }) => {
   const [cafe, setCafe] = useState([]);
   const [reviews, setReviews] = useState([]);
 
-
   useEffect(() => {
     axios.get(`/api/cafe/${match.params.id}`).then((result) => {
       setCafe(result.data);
@@ -25,7 +24,6 @@ const CafeReviews = ({ match }) => {
   let filteredReviews = reviews.filter((review) => {
     return review.cafeName === cafe.cafeName;
   })
-
 
    let okFineDontWork = (averageStarRating(filteredReviews))
   

@@ -4,6 +4,8 @@ import axios from 'axios'
 const AddReview = () => {
 
     const [{userName,stars,title,photo,blurb,cafeName}, setFormDetails] = useState({userName:'', stars:0, title:'', photo:'', blurb:'',cafeName:''})
+    const [submittedResponse, setSubmittedResponse] = useState('')
+    const [showMessage, setShowMessage] = useState(true)
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -25,15 +27,32 @@ const AddReview = () => {
             blurb:blurb,
             cafeName:cafeName
         }
-        console.log(newReview)
         axios.post('http://localhost:5000/api/add-review',newReview)
-        .then((result) => {
-            console.log('review successfully posted')
+        .then(result => {
+            setSubmittedResponse(result.data.message)
         })
         .catch((err) => {
             console.log(err)
         })
     }
+
+    const handleClick = () => {
+        setShowMessage(false)
+    }
+
+    const setResponseMessage = (responseState) => {
+        let message = ''
+        if(responseState === 'Review successfully submitted'){
+            message = <div>Review submitted!<button onClick = {handleClick}>x</button></div>
+        } else if (responseState === ''){
+            message = null
+        }else{
+            message = 'Error: review not submitted. Please try again later'
+        }
+        return message
+      }
+
+      const message = setResponseMessage(submittedResponse)
 
     return(
         <>
@@ -71,6 +90,14 @@ const AddReview = () => {
                 </select>
             </label>
             <button type = 'submit'>Submit</button>
+            <div className = 'submit-message'>
+            {
+                showMessage === true ? 
+                message
+                :
+                null
+            }
+            </div>
         </form>
         </>
     )
