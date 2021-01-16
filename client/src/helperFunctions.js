@@ -10,12 +10,14 @@ export const convertToStars = (stars) => {
     return arr;
   }
 
-
+  
   export const averageStarRating = (data) => {
+    if(data.length){
     let arr = data.map(item => parseInt(item.stars))
     let total = arr.reduce((x,y) => x+y)
     let average = total/data.length
     let roundedAverage = Math.round(average)
     let averageStars = convertToStars(roundedAverage)
     return averageStars
+    } else return null
   }

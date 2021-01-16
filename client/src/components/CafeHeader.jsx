@@ -1,12 +1,12 @@
 import React from 'react'
 
 const CafeHeader = (props) => {
-  const { cafe } = props
+  const { cafe, thing } = props
   return (
     <div>
       <div className="cafe-header">
         <img src={cafe.photoURL}></img>
-        <h1>{cafe.cafeName}</h1>
+        <h1>{cafe.cafeName}</h1>{thing}
       </div>
       <ul className="contact-details">
         <li>{cafe.address}</li>

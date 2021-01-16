@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import {convertToStars, averageStarRating} from '../helperFunctions'
+import {convertToStars} from '../helperFunctions'
 
 const Review = (props) => {
   const { reviews } = props;
@@ -21,10 +21,7 @@ const Review = (props) => {
       {
       reviews.map((review) => {
         const { title, userName, blurb, stars, _id } = review;
-
         const starRating = convertToStars(stars)
-        const averageRating = averageStarRating(reviews)
-
         return (
           <div  className = 'review-container'>
             <h1>{title}</h1>
