@@ -24,3 +24,4 @@ const AllReviews = () => {
 }
 
 export default AllReviews
+

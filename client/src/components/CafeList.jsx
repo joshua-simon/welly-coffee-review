@@ -6,9 +6,9 @@ import Cafe from './Cafe'
 const CafeList = () => {
   const [cafes, setCafe] = useState([]);
 
+  
   useEffect(() => {
-    axios
-      .get("/api/all-cafes")
+    axios.get("/api/all-cafes")
       .then((cafe) => {
         setCafe(cafe.data);
       })

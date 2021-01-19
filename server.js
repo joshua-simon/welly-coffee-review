@@ -4,12 +4,19 @@ const mongoose = require('mongoose')
 const Review = require('./models/reviews')
 const Cafe = require('./models/cafes')
 const bodyParser = require('body-parser');
+require('dotenv').config()
+
+
 
 
 //Server
 const app = express();
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+}
 
 //Middleware
 app.use(bodyParser.json());

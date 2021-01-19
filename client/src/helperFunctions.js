@@ -22,5 +22,10 @@ export const convertToStars = (stars) => {
     } else return null
   }
 
+const prefix = process.env.NODE_ENV === 'production' ? "http://mocha-welly-review" : "http://localhost:5000"
+export function getUrl(relativeUrl) {
+   return prefix + "/" + relativeUrl;
+}
+
 
 
