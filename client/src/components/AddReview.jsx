@@ -28,7 +28,7 @@ const AddReview = () => {
             blurb:blurb,
             cafeName:cafeName
         }
-        axios.post('http://localhost:5000/api/add-review',newReview)
+        axios.post('/api/add-review',newReview)
         .then(result => {
             setSubmittedResponse(result.data.message)
         })

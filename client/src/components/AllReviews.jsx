@@ -6,7 +6,7 @@ const AllReviews = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-    axios.get('http://localhost:5000/api/all-reviews')
+    axios.get('/api/all-reviews')
     .then(review => {
         setReviews(review.data)
     })
