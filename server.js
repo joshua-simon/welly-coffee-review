@@ -14,9 +14,25 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 //Middleware
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../client/build')));
+const whitelist = ['http://localhost:3000', 'http://localhost:5000', 'https://mocha-welly-review.herokuapp.com']
+const corsOptions = {
+  origin: function (origin, callback) {
+    console.log("** Origin of request " + origin)
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      console.log("Origin acceptable")
+      callback(null, true)
+    } else {
+      console.log("Origin rejected")
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
 }
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'client/build')));
+    app.get('*', function(req, res) {
+      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    })
+  }
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded())
