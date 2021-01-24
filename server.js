@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const Review = require('./models/reviews')
 const Cafe = require('./models/cafes')
 const bodyParser = require('body-parser');
-
+const path = require('path');
 
 
 //Server
@@ -14,7 +14,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 //Middleware
-
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded())
