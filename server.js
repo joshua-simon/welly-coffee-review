@@ -6,6 +6,9 @@ const Cafe = require('./models/cafes')
 const bodyParser = require('body-parser');
 const path = require('path');
 
+app.get("*", (req, res) => {
+    res.sendfile(path.resolve(__dirname, "client", "build", "index.html"));
+})
 
 //Server
 const app = express();
@@ -14,14 +17,14 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 //Middleware
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, "client", "build")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded())
 app.use(cors())
 
 if(process.env.NODE_ENV ==='production'){
-    app.use(express.static('client/build'))
+    app.use("welly-coffee-review", express.static('client/build'))
 }
 //Mongo config
 const dbURI = 'mongodb+srv://joshydsimon:Josh1985!@mochawelly.8cxdz.mongodb.net/MochaWelly?retryWrites=true&w=majority'
