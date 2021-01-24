@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const Review = require('./models/reviews')
 const Cafe = require('./models/cafes')
 const bodyParser = require('body-parser');
-require('dotenv').config()
+
 
 
 //Server
@@ -14,15 +14,18 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 //Middleware
-app.use(express.static(path.join(__dirname, 'client/build')));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded())
 app.use(cors())
 
+if(process.env.NODE_ENV ==='production'){
+    app.use(express.static('client/build'))
+}
 //Mongo config
 const dbURI = 'mongodb+srv://joshydsimon:Josh1985!@mochawelly.8cxdz.mongodb.net/MochaWelly?retryWrites=true&w=majority'
-mongoose.connect(dbURI, {useNewUrlParser:true, useUnifiedTopology:true})
+mongoose.connect(process.env.MONGODB_URI || dbURI, {useNewUrlParser:true, useUnifiedTopology:true})
 .then(() => {
     console.log('connected to db')
 })
@@ -31,9 +34,7 @@ mongoose.connect(dbURI, {useNewUrlParser:true, useUnifiedTopology:true})
 })
 
 //Routes
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
+
 
 app.get('/api/all-reviews', (req,res) => {
     Review.find()
