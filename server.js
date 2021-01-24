@@ -6,9 +6,6 @@ const Cafe = require('./models/cafes')
 const bodyParser = require('body-parser');
 const path = require('path');
 
-app.get("*", (req, res) => {
-    res.sendfile(path.resolve(__dirname, "client", "build", "index.html"));
-})
 
 //Server
 const app = express();
@@ -17,15 +14,12 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 //Middleware
-app.use(express.static(path.join(__dirname, "client", "build")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded())
 app.use(cors())
 
-if(process.env.NODE_ENV ==='production'){
-    app.use("welly-coffee-review", express.static('client/build'))
-}
+
 //Mongo config
 const dbURI = 'mongodb+srv://joshydsimon:Josh1985!@mochawelly.8cxdz.mongodb.net/MochaWelly?retryWrites=true&w=majority'
 mongoose.connect(process.env.MONGODB_URI || dbURI, {useNewUrlParser:true, useUnifiedTopology:true})
@@ -37,8 +31,6 @@ mongoose.connect(process.env.MONGODB_URI || dbURI, {useNewUrlParser:true, useUni
 })
 
 //Routes
-
-
 app.get('/api/all-reviews', (req,res) => {
     Review.find()
     .then((result) => {
@@ -93,7 +85,7 @@ app.post('/api/add-review',(req,res) => {
         console.log(err)
     })
 })
-
+ 
 app.delete('/api/reviews/:id', (req,res) => {
     const id = req.params.id
     Review.findByIdAndDelete(id)
@@ -104,3 +96,10 @@ app.delete('/api/reviews/:id', (req,res) => {
         console.log(err)
     })
 })
+
+if(process.env.NODE_ENV ==='production'){
+    app.use(express.static('client/build'))
+    app.get('*', (req,res) => {
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+    })
+}
