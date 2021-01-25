@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const Review = require('./models/reviews')
 const Cafe = require('./models/cafes')
 const bodyParser = require('body-parser');
-require('dotenv').config()
+
 
 
 //Server
@@ -14,7 +14,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 //Middleware
-app.use(express.static(path.join(__dirname, 'client/build')));
+// app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded())
@@ -31,9 +31,7 @@ mongoose.connect(dbURI, {useNewUrlParser:true, useUnifiedTopology:true})
 })
 
 //Routes
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
+
 
 app.get('/api/all-reviews', (req,res) => {
     Review.find()
